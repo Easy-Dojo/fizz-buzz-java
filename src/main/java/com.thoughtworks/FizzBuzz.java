@@ -17,6 +17,10 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
+        if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number) && isDivisibleByWhizzNumber(number)) {
+            return FIZZ_STRING + BUZZ_STRING + WHIZZ_STRING;
+        }
+
         if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number)) {
             return FIZZ_STRING + BUZZ_STRING;
         }
