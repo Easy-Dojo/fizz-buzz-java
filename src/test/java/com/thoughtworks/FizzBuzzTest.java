@@ -8,9 +8,9 @@ public class FizzBuzzTest {
 
     private static final String FIZZ_STRING = "Fizz";
     private static final String BUZZ_STRING = "Buzz";
+    private static final String WHIZZ_STRING = "Whizz";
     private static final int FIZZ_NUMBER = 3;
     private static final int BUZZ_NUMBER = 5;
-    private static final String WHIZZ_STRING = "WHIZZ";
     private static final int WHIZZ_NUMBER = 7;
 
     @Test
@@ -49,9 +49,20 @@ public class FizzBuzzTest {
         assertEquals(FIZZ_STRING + BUZZ_STRING, actual);
     }
 
+    @Test
+    public void should_return_FizzWhizz_when_input_21() {
+        String actual = fizzBuzz(21);
+
+        assertEquals(FIZZ_STRING + WHIZZ_STRING, actual);
+    }
+
     private String fizzBuzz(int number) {
         if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number)) {
             return FIZZ_STRING + BUZZ_STRING;
+        }
+
+        if (isDivisibleByFizzNumber(number) && isDivisibleByWhizzNumber(number)) {
+            return FIZZ_STRING + WHIZZ_STRING;
         }
 
         if (isDivisibleByFizzNumber(number)) {
