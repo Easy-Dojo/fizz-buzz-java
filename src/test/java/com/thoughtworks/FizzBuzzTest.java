@@ -10,6 +10,8 @@ public class FizzBuzzTest {
     private static final String BUZZ_STRING = "Buzz";
     private static final int FIZZ_NUMBER = 3;
     private static final int BUZZ_NUMBER = 5;
+    private static final String WHIZZ_STRING = "WHIZZ";
+    private static final int WHIZZ_NUMBER = 7;
 
     @Test
     public void should_return_1_when_input_1() {
@@ -33,12 +35,22 @@ public class FizzBuzzTest {
         assertEquals(BUZZ_STRING, actual);
     }
 
+    @Test
+    public void should_return_Whizz_when_input_7() {
+        String actual = fizzBuzz(7);
+
+        assertEquals(WHIZZ_STRING, actual);
+    }
+
     private String fizzBuzz(int number) {
         if (number % FIZZ_NUMBER == 0) {
             return FIZZ_STRING;
         }
         if (number % BUZZ_NUMBER == 0) {
             return BUZZ_STRING;
+        }
+        if (number % WHIZZ_NUMBER == 0) {
+            return WHIZZ_STRING;
         }
         return String.valueOf(number);
     }
