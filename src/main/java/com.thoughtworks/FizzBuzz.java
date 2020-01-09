@@ -42,7 +42,14 @@ public class FizzBuzz {
         if (isDivisibleByWhizzNumber(number)) {
             return WHIZZ_STRING;
         }
+        if (isContainsFizzNumber(number)) {
+            return FIZZ_STRING;
+        }
         return String.valueOf(number);
+    }
+
+    private boolean isContainsFizzNumber(int number) {
+        return String.valueOf(number).contains(String.valueOf(FIZZ_NUMBER));
     }
 
     private boolean isDivisibleByFizzNumber(int number) {

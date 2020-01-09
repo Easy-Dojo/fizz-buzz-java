@@ -67,4 +67,11 @@ public class FizzBuzzTest {
         assertEquals(FIZZ_STRING + BUZZ_STRING + WHIZZ_STRING, actual.toString());
     }
 
+    @Test
+    public void should_return_Fizz_when_input_13() {
+        FizzBuzz actual = new FizzBuzz(13);
+
+        assertEquals(FIZZ_STRING, actual.toString());
+    }
+
 }
