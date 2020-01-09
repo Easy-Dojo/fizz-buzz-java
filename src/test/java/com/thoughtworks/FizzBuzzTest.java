@@ -43,15 +43,27 @@ public class FizzBuzzTest {
     }
 
     private String fizzBuzz(int number) {
-        if (number % FIZZ_NUMBER == 0) {
+        if (isDivisibleByFizzNumber(number)) {
             return FIZZ_STRING;
         }
-        if (number % BUZZ_NUMBER == 0) {
+        if (isDivisibleByBuzzNumber(number)) {
             return BUZZ_STRING;
         }
-        if (number % WHIZZ_NUMBER == 0) {
+        if (isDivisibleByWhizzNumber(number)) {
             return WHIZZ_STRING;
         }
         return String.valueOf(number);
+    }
+
+    private boolean isDivisibleByFizzNumber(int number) {
+        return number % FIZZ_NUMBER == 0;
+    }
+
+    private boolean isDivisibleByBuzzNumber(int number) {
+        return number % BUZZ_NUMBER == 0;
+    }
+
+    private boolean isDivisibleByWhizzNumber(int number) {
+        return number % WHIZZ_NUMBER == 0;
     }
 }
