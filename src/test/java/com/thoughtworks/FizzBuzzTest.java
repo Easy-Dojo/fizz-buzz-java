@@ -56,6 +56,13 @@ public class FizzBuzzTest {
         assertEquals(FIZZ_STRING + WHIZZ_STRING, actual);
     }
 
+    @Test
+    public void should_return_BuzzWhizz_when_input_35() {
+        String actual = fizzBuzz(35);
+
+        assertEquals(BUZZ_STRING + WHIZZ_STRING, actual);
+    }
+
     private String fizzBuzz(int number) {
         if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number)) {
             return FIZZ_STRING + BUZZ_STRING;
@@ -63,6 +70,10 @@ public class FizzBuzzTest {
 
         if (isDivisibleByFizzNumber(number) && isDivisibleByWhizzNumber(number)) {
             return FIZZ_STRING + WHIZZ_STRING;
+        }
+
+        if (isDivisibleByBuzzNumber(number) && isDivisibleByWhizzNumber(number)) {
+            return BUZZ_STRING + WHIZZ_STRING;
         }
 
         if (isDivisibleByFizzNumber(number)) {
