@@ -25,7 +25,7 @@ public class FizzBuzz {
             return WHIZZ_STRING;
         }
 
-        return String.valueOf(number);
+        return number.toString();
     }
 
     private boolean isDivisibleBy(Integer number, int i) {
