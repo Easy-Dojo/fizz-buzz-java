@@ -29,6 +29,10 @@ public class FizzBuzz {
             result += WHIZZ_STRING;
         }
 
+        if (isContainsWhizzNumber(number)) {
+            return result.replace(BUZZ_STRING, "");
+        }
+
         if (isContainsBuzzNumber(number)) {
             return result.replace(FIZZ_STRING, "");
         }
@@ -42,6 +46,10 @@ public class FizzBuzz {
         }
 
         return result;
+    }
+
+    private boolean isContainsWhizzNumber(int number) {
+        return String.valueOf(number).contains(String.valueOf(WHIZZ_NUMBER));
     }
 
     private boolean isContainsBuzzNumber(int number) {
