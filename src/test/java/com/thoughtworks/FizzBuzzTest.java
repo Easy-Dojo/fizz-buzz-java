@@ -10,7 +10,8 @@ public class FizzBuzzTest {
     @CsvSource({
             "1, 1",
             "Fizz, 3",
-            "Buzz, 5"
+            "Buzz, 5",
+            "Whizz, 7",
     })
     void test_for_input_number_divisible_by_special_number(String expected, Integer number) {
         FizzBuzz result = new FizzBuzz(number);
