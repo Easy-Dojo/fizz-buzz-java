@@ -43,7 +43,7 @@ public class FizzBuzzTest {
     public void should_return_FizzBuzz_when_input_15() {
         FizzBuzz actual = new FizzBuzz(15);
 
-        assertEquals(FIZZ_STRING + BUZZ_STRING, actual.toString());
+        assertEquals(BUZZ_STRING, actual.toString());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class FizzBuzzTest {
     public void should_return_FizzBuzzWhizz_when_input_105() {
         FizzBuzz actual = new FizzBuzz(105);
 
-        assertEquals(FIZZ_STRING + BUZZ_STRING + WHIZZ_STRING, actual.toString());
+        assertEquals(BUZZ_STRING + WHIZZ_STRING, actual.toString());
     }
 
     @Test

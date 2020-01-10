@@ -17,35 +17,35 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number) && isDivisibleByWhizzNumber(number)) {
-            return FIZZ_STRING + BUZZ_STRING + WHIZZ_STRING;
-        }
-
-        if (isDivisibleByFizzNumber(number) && isDivisibleByBuzzNumber(number)) {
-            return FIZZ_STRING + BUZZ_STRING;
-        }
-
-        if (isDivisibleByFizzNumber(number) && isDivisibleByWhizzNumber(number)) {
-            return FIZZ_STRING + WHIZZ_STRING;
-        }
-
-        if (isDivisibleByBuzzNumber(number) && isDivisibleByWhizzNumber(number)) {
-            return BUZZ_STRING + WHIZZ_STRING;
-        }
+        String result = "";
 
         if (isDivisibleByFizzNumber(number)) {
-            return FIZZ_STRING;
+            result += FIZZ_STRING;
         }
         if (isDivisibleByBuzzNumber(number)) {
-            return BUZZ_STRING;
+            result += BUZZ_STRING;
         }
         if (isDivisibleByWhizzNumber(number)) {
-            return WHIZZ_STRING;
+            result += WHIZZ_STRING;
         }
+
+        if (isContainsBuzzNumber(number)) {
+            return result.replace(FIZZ_STRING, "");
+        }
+
         if (isContainsFizzNumber(number)) {
-            return FIZZ_STRING;
+            return  FIZZ_STRING;
         }
-        return String.valueOf(number);
+
+        if (result.isEmpty()) {
+            return String.valueOf(number);
+        }
+
+        return result;
+    }
+
+    private boolean isContainsBuzzNumber(int number) {
+        return String.valueOf(number).contains(String.valueOf(BUZZ_NUMBER));
     }
 
     private boolean isContainsFizzNumber(int number) {
