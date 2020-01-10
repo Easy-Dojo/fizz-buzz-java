@@ -1,6 +1,8 @@
 package com.thoughtworks;
 
 public class FizzBuzz {
+    private static final int FIZZ_NUMBER = 3;
+    private static final String FIZZ_STRING = "Fizz";
     private final Integer number;
 
     public FizzBuzz(Integer number) {
@@ -9,7 +11,15 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
+        if (isDivisibleBy(number, FIZZ_NUMBER)) {
+            return FIZZ_STRING;
+        }
+
         return String.valueOf(number);
+    }
+
+    private boolean isDivisibleBy(Integer number, int i) {
+        return number % i == 0;
     }
 
 }
