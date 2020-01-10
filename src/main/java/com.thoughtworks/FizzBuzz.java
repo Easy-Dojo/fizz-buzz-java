@@ -7,5 +7,9 @@ public class FizzBuzz {
         this.number = number;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(number);
+    }
 
 }
