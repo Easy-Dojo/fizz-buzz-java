@@ -7,7 +7,7 @@ public class FizzBuzz {
     private static final int BUZZ_NUMBER = 5;
     private static final String WHIZZ_STRING = "Whizz";
     private static final int WHIZZ_NUMBER = 7;
-    private static final String BLANKSTRING = "";
+    private static final String BLANK_STRING = "";
     private final Integer number;
 
     public FizzBuzz(Integer number) {
@@ -21,15 +21,15 @@ public class FizzBuzz {
     }
 
     private String getFizzRuleResult(Integer number) {
-        return isDivisibleBy(number, FIZZ_NUMBER) ? FIZZ_STRING : BLANKSTRING;
+        return isDivisibleBy(number, FIZZ_NUMBER) ? FIZZ_STRING : BLANK_STRING;
     }
 
     private String getBuzzRuleResult(Integer number) {
-        return isDivisibleBy(number, BUZZ_NUMBER) ? BUZZ_STRING : BLANKSTRING;
+        return isDivisibleBy(number, BUZZ_NUMBER) ? BUZZ_STRING : BLANK_STRING;
     }
 
     private String getWhizzRuleResult(Integer number) {
-        return isDivisibleBy(number, WHIZZ_NUMBER) ? WHIZZ_STRING : BLANKSTRING;
+        return isDivisibleBy(number, WHIZZ_NUMBER) ? WHIZZ_STRING : BLANK_STRING;
     }
 
     private boolean isDivisibleBy(Integer number, int i) {
