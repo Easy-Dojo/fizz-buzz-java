@@ -22,3 +22,5 @@
         - FizzWhizz ---- new FizzBuzz(1470).toString
     - contains 3
         - Fizz ---- new FizzBuzz(735).toString (3*5*7)*7
+- should return number string when number is normal
+    - 1 ---- new FizzBuzz(1).toString

@@ -8,9 +8,11 @@ public class FizzBuzzTest {
 
     @ParameterizedTest
     @CsvSource({
-            "FizzBuzz, 15",
+            "Fizz, 6",
+            "Buzz, 10",
+            "Whizz, 14",
     })
-    void test_for_input_number_divisible_by_special_number(String expected, Integer number) {
+    void should_return_special_string_given_number_is_divisible_by_special_number(String expected, Integer number) {
         FizzBuzz result = new FizzBuzz(number);
 
         Assertions.assertEquals(expected, result.toString());
@@ -18,11 +20,12 @@ public class FizzBuzzTest {
 
     @ParameterizedTest
     @CsvSource({
-            "FizzBuzz, 15",
+            "FizzBuzz, 60",
             "FizzWhizz, 21",
-            "BuzzWhizz, 35",
+            "BuzzWhizz, 140",
+            "FizzBuzzWhizz, 210",
     })
-    void test_for_input_number_divisible_by_multi_special_number(String expected, Integer number) {
+    void should_return_multiple_special_string_given_number_is_divisible_by_multiple_special_number(String expected, Integer number) {
         FizzBuzz result = new FizzBuzz(number);
 
         Assertions.assertEquals(expected, result.toString());
