@@ -32,14 +32,24 @@ public class FizzBuzz {
         result.add(getFizzRuleResult());
         result.add(getBuzzRuleResult());
         result.add(getWhizzRuleResult());
-        if (contains(number, FIZZ_NUMBER)) {
+
+        if (contains(number, BUZZ_NUMBER)) {
+            result = removeFizzRuleResult(result);
+        }
+        if (contains(number, FIZZ_NUMBER) && !contains(number, BUZZ_NUMBER)) {
             result.add(0, FIZZ_STRING);
-            result = removeFizzRuleResultAndBuzzRuleResult(result);
+            result = removeBuzzRuleResultAndWhizzRuleResult(result);
         }
         return result;
     }
 
-    private List<String> removeFizzRuleResultAndBuzzRuleResult(List<String> result) {
+    private List<String> removeFizzRuleResult(List<String> result) {
+        return result.stream()
+                .filter(ruleResult -> !ruleResult.equals(FIZZ_STRING))
+                .collect(Collectors.toList());
+    }
+
+    private List<String> removeBuzzRuleResultAndWhizzRuleResult(List<String> result) {
         return result.stream()
                 .filter(ruleResult -> ruleResult.equals(FIZZ_STRING))
                 .collect(Collectors.toList());
