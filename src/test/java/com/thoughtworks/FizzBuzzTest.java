@@ -30,4 +30,16 @@ public class FizzBuzzTest {
 
         Assertions.assertEquals(expected, result.toString());
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Fizz, 3",
+            "Fizz, 13",
+            "Fizz, 30",
+    })
+    void should_return_Fizz_given_number_contain_3(String expected, Integer number) {
+        FizzBuzz result = new FizzBuzz(number);
+
+        Assertions.assertEquals(expected, result.toString());
+    }
 }

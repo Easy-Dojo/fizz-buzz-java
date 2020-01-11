@@ -16,19 +16,19 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        String result = getFizzRuleResult(number) + getBuzzRuleResult(number) + getWhizzRuleResult(number);
+        String result = getFizzRuleResult() + getBuzzRuleResult() + getWhizzRuleResult();
         return result.isEmpty() ? number.toString() : result;
     }
 
-    private String getFizzRuleResult(Integer number) {
+    private String getFizzRuleResult() {
         return isDivisibleBy(number, FIZZ_NUMBER) ? FIZZ_STRING : BLANK_STRING;
     }
 
-    private String getBuzzRuleResult(Integer number) {
+    private String getBuzzRuleResult() {
         return isDivisibleBy(number, BUZZ_NUMBER) ? BUZZ_STRING : BLANK_STRING;
     }
 
-    private String getWhizzRuleResult(Integer number) {
+    private String getWhizzRuleResult() {
         return isDivisibleBy(number, WHIZZ_NUMBER) ? WHIZZ_STRING : BLANK_STRING;
     }
 
