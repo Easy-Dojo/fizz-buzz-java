@@ -24,3 +24,10 @@
         - Fizz ---- new FizzBuzz(735).toString (3*5*7)*7
 - should return number string when number is normal
     - 1 ---- new FizzBuzz(1).toString
+
+
+Fizz: 被三整除/包含3 + 不包含5/包含5也包含7。
+
+Buzz：被五整除 + 不包含7 + 不包含5也不包含3/包含5
+ 
+Whizz：被七整除 + 不包含5也不包含3/包含5不包含7/包含5包含7不包含3
