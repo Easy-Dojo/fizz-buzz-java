@@ -24,25 +24,31 @@ public class FizzBuzz {
 
         return ruleResults.stream()
                 .distinct()
-                .reduce(String::concat).orElse(number.toString());
+                .reduce(String::concat)
+                .orElse(number.toString());
     }
 
     private List<String> getRuleResults() {
-        List<String> result = new ArrayList<>();
-        result.add(getFizzRuleResult());
-        result.add(getBuzzRuleResult());
-        result.add(getWhizzRuleResult());
+        List<String> result = getDivisibleRulesResult();
 
         if (contains(WHIZZ_NUMBER)) {
             result = removeBuzzRuleResult(result);
         }
-        if (contains(BUZZ_NUMBER) && !contains( WHIZZ_NUMBER)) {
+        if (contains(BUZZ_NUMBER) && !contains(WHIZZ_NUMBER)) {
             result = removeFizzRuleResult(result);
         }
-        if (contains(FIZZ_NUMBER) && (!contains(BUZZ_NUMBER)||contains(WHIZZ_NUMBER))) {
+        if (contains(FIZZ_NUMBER) && (!contains(BUZZ_NUMBER) || contains(WHIZZ_NUMBER))) {
             result.add(0, FIZZ_STRING);
             result = removeBuzzRuleResultAndWhizzRuleResult(result);
         }
+        return result;
+    }
+
+    private List<String> getDivisibleRulesResult() {
+        List<String> result = new ArrayList<>();
+        result.add(getFizzRuleResult());
+        result.add(getBuzzRuleResult());
+        result.add(getWhizzRuleResult());
         return result;
     }
 
