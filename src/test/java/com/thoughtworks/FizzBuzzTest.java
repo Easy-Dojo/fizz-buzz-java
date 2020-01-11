@@ -54,4 +54,17 @@ public class FizzBuzzTest {
 
         Assertions.assertEquals(expected, result.toString());
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Fizz, 75",
+            "Fizz, 270",
+            "FizzWhizz, 1470",
+            "Fizz, 735",
+    })
+    void should_return_special_string_ignore_Buzz_when_number_is_contains_special_number_7(String expected, Integer number) {
+        FizzBuzz result = new FizzBuzz(number);
+
+        Assertions.assertEquals(expected, result.toString());
+    }
 }

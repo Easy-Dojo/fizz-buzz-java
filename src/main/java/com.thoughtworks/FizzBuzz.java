@@ -33,14 +33,23 @@ public class FizzBuzz {
         result.add(getBuzzRuleResult());
         result.add(getWhizzRuleResult());
 
-        if (contains(number, BUZZ_NUMBER)) {
+        if (contains(number, WHIZZ_NUMBER)) {
+            result = removeBuzzRuleResult(result);
+        }
+        if (contains(number, BUZZ_NUMBER) && !contains(number, WHIZZ_NUMBER)) {
             result = removeFizzRuleResult(result);
         }
-        if (contains(number, FIZZ_NUMBER) && !contains(number, BUZZ_NUMBER)) {
+        if (contains(number, FIZZ_NUMBER) && (!contains(number, BUZZ_NUMBER)||contains(number, WHIZZ_NUMBER))) {
             result.add(0, FIZZ_STRING);
             result = removeBuzzRuleResultAndWhizzRuleResult(result);
         }
         return result;
+    }
+
+    private List<String> removeBuzzRuleResult(List<String> result) {
+        return result.stream()
+                .filter(ruleResult -> !ruleResult.equals(BUZZ_STRING))
+                .collect(Collectors.toList());
     }
 
     private List<String> removeFizzRuleResult(List<String> result) {
