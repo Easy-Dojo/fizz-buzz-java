@@ -1,7 +1,8 @@
 package com.thoughtworks;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FizzBuzz {
     private static final int FIZZ_NUMBER = 3;
@@ -21,11 +22,31 @@ public class FizzBuzz {
     public String toString() {
         List<String> ruleResults = getRuleResults();
 
-        return ruleResults.stream().reduce(String::concat).orElse(number.toString());
+        return ruleResults.stream()
+                .distinct()
+                .reduce(String::concat).orElse(number.toString());
     }
 
     private List<String> getRuleResults() {
-        return Arrays.asList(getFizzRuleResult(), getBuzzRuleResult(), getWhizzRuleResult());
+        List<String> result = new ArrayList<>();
+        result.add(getFizzRuleResult());
+        result.add(getBuzzRuleResult());
+        result.add(getWhizzRuleResult());
+        if (contains(number, FIZZ_NUMBER)) {
+            result.add(0, FIZZ_STRING);
+            result = removeFizzRuleResultAndBuzzRuleResult(result);
+        }
+        return result;
+    }
+
+    private List<String> removeFizzRuleResultAndBuzzRuleResult(List<String> result) {
+        return result.stream()
+                .filter(ruleResult -> ruleResult.equals(FIZZ_STRING))
+                .collect(Collectors.toList());
+    }
+
+    private boolean contains(Integer number, Integer fizzNumber) {
+        return number.toString().contains(fizzNumber.toString());
     }
 
     private String getFizzRuleResult() {
