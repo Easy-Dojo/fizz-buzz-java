@@ -33,13 +33,13 @@ public class FizzBuzz {
         result.add(getBuzzRuleResult());
         result.add(getWhizzRuleResult());
 
-        if (contains(number, WHIZZ_NUMBER)) {
+        if (contains(WHIZZ_NUMBER)) {
             result = removeBuzzRuleResult(result);
         }
-        if (contains(number, BUZZ_NUMBER) && !contains(number, WHIZZ_NUMBER)) {
+        if (contains(BUZZ_NUMBER) && !contains( WHIZZ_NUMBER)) {
             result = removeFizzRuleResult(result);
         }
-        if (contains(number, FIZZ_NUMBER) && (!contains(number, BUZZ_NUMBER)||contains(number, WHIZZ_NUMBER))) {
+        if (contains(FIZZ_NUMBER) && (!contains(BUZZ_NUMBER)||contains(WHIZZ_NUMBER))) {
             result.add(0, FIZZ_STRING);
             result = removeBuzzRuleResultAndWhizzRuleResult(result);
         }
@@ -64,23 +64,23 @@ public class FizzBuzz {
                 .collect(Collectors.toList());
     }
 
-    private boolean contains(Integer number, Integer fizzNumber) {
+    private boolean contains(Integer fizzNumber) {
         return number.toString().contains(fizzNumber.toString());
     }
 
     private String getFizzRuleResult() {
-        return isDivisibleBy(number, FIZZ_NUMBER) ? FIZZ_STRING : BLANK_STRING;
+        return isDivisibleBy(FIZZ_NUMBER) ? FIZZ_STRING : BLANK_STRING;
     }
 
     private String getBuzzRuleResult() {
-        return isDivisibleBy(number, BUZZ_NUMBER) ? BUZZ_STRING : BLANK_STRING;
+        return isDivisibleBy(BUZZ_NUMBER) ? BUZZ_STRING : BLANK_STRING;
     }
 
     private String getWhizzRuleResult() {
-        return isDivisibleBy(number, WHIZZ_NUMBER) ? WHIZZ_STRING : BLANK_STRING;
+        return isDivisibleBy(WHIZZ_NUMBER) ? WHIZZ_STRING : BLANK_STRING;
     }
 
-    private boolean isDivisibleBy(Integer number, int i) {
+    private boolean isDivisibleBy(int i) {
         return number % i == 0;
     }
 
