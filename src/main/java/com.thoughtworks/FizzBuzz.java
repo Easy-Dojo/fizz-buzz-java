@@ -1,5 +1,8 @@
 package com.thoughtworks;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FizzBuzz {
     private static final int FIZZ_NUMBER = 3;
     private static final String FIZZ_STRING = "Fizz";
@@ -16,8 +19,13 @@ public class FizzBuzz {
 
     @Override
     public String toString() {
-        String result = getFizzRuleResult() + getBuzzRuleResult() + getWhizzRuleResult();
-        return result.isEmpty() ? number.toString() : result;
+        List<String> ruleResults = getRuleResults();
+
+        return ruleResults.stream().reduce(String::concat).orElse(number.toString());
+    }
+
+    private List<String> getRuleResults() {
+        return Arrays.asList(getFizzRuleResult(), getBuzzRuleResult(), getWhizzRuleResult());
     }
 
     private String getFizzRuleResult() {
